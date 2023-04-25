@@ -71,7 +71,58 @@ int print_arg(const char *c, va_list args)
 		case '%':
 			return (print_percent());
 
+		case 'd':
+		case 'i':
+			return (print_int(va_arg(args, int)));
+
 		default:
 			return (print_char('%') + print_char(*c));
 	}
+}
+
+/**
+ * print_int - Function prints an integer
+ * @num: Integer to be printed
+ * Return: Number of characters to be printed
+ */
+int print_int(int num)
+{
+	int count, digit;
+	char sign, i, buffer[20];
+
+	count = 0;
+	sign = '+';
+	i = 0;
+
+	if (num < 0)
+	{
+		sign = '-';
+		num *= -1;
+	}
+
+	if (num == 0)
+	{
+		return (print_char('0'));
+	}
+
+	while (num > 0)
+	{
+		digit = num % 10;
+		buffer[i] = digit + '0';
+		i++;
+		num /= 10;
+	}
+
+	if (sign == '-')
+	{
+		count += print_char(sign);
+	}
+
+	while (i > 0)
+	{
+		i--;
+		count += print_char(buffer[i]);
+	}
+
+	return (count);
 }
