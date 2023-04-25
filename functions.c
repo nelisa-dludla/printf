@@ -41,7 +41,7 @@ int print_string(const char *s, int char_count)
 	}
 
 	write(1, s, len);
-	return (char_count + (len - 3));
+	return (char_count + len);
 }
 
 /**
@@ -86,9 +86,7 @@ int print_arg(const char *format, va_list args, int char_count)
 	}
 	else
 	{
-		print_char('%', char_count);
-		print_char(*format, char_count + 1);
-		return (char_count + 2);
+		char_count = print_char(*format, char_count);
 	}
 	return (char_count);
 }
