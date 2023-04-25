@@ -9,8 +9,7 @@
 /**
  * print_char - Function prints a character
  * @c: Character to be printed
- * @char_count: Current character count
- * Return: New character count
+ * Return: 1 (Number of characters to be printed)
  */
 int print_char(const char c)
 {
@@ -21,8 +20,7 @@ int print_char(const char c)
 /**
  * print_string - Function prints a string
  * @s: String to be printed
- * @char_count: Current character count
- * Return: New character count
+ * Return: Number of characters to be printed
  */
 int print_string(const char *s)
 {
@@ -46,8 +44,7 @@ int print_string(const char *s)
 
 /**
  * print_percent - Function prints the precent symbol
- * @char_count: Current character count
- * Return: New character count
+ * Return: 1 (Number of characters to be printed)
  */
 int print_percent(void)
 {
@@ -57,10 +54,9 @@ int print_percent(void)
 
 /**
  * print_arg - Function prints an argument based on the format specifier
- * @format: Pointer parameter
+ * @c: Format parameter
  * @args: Argument list
- * @char_count: Current character count
- * Return: New character count
+ * Return: Number of characters to be printed
  */
 int print_arg(const char *c, va_list args)
 {
