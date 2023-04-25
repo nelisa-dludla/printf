@@ -87,8 +87,8 @@ int print_arg(const char *c, va_list args)
  */
 int print_int(int num)
 {
-	int count, digit;
-	char sign, i, buffer[20];
+	int count, digit, i;
+	char sign, buffer[12];
 
 	count = 0;
 	sign = '+';
@@ -118,9 +118,8 @@ int print_int(int num)
 		count += print_char(sign);
 	}
 
-	while (i > 0)
+	for (i = i - 1; i >= 0; i--)
 	{
-		i--;
 		count += print_char(buffer[i]);
 	}
 
