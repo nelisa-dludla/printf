@@ -88,21 +88,20 @@ int print_arg(const char *c, va_list args)
 int print_int(int num)
 {
 	int count, digit, i;
-	char sign, buffer[12];
+	char buffer[12];
 
 	count = 0;
-	sign = '+';
 	i = 0;
-
-	if (num < 0)
-	{
-		sign = '-';
-		num *= -1;
-	}
 
 	if (num == 0)
 	{
 		return (print_char('0'));
+	}
+
+	if (num < 0)
+	{
+		count += print_char('-');
+		num *= -1;
 	}
 
 	while (num > 0)
@@ -111,11 +110,6 @@ int print_int(int num)
 		buffer[i] = digit + '0';
 		i++;
 		num /= 10;
-	}
-
-	if (sign == '-')
-	{
-		count += print_char(sign);
 	}
 
 	for (i = i - 1; i >= 0; i--)
