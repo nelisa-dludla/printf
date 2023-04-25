@@ -11,7 +11,7 @@
  * @s: Pointer Value with string inside
  * Return: count
  */
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int count;
 

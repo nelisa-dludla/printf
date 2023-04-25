@@ -8,7 +8,7 @@
  * @char_count: Current character count
  * Return: New character count
  */
-int print_char(char c, int char_count)
+int print_char(const char c, int char_count)
 {
 	write(1, &c, 1);
 	return (char_count + 1);
@@ -20,7 +20,7 @@ int print_char(char c, int char_count)
  * @char_count: Current character count
  * Return: New character count
  */
-int print_string(char *s, int char_count)
+int print_string(const char *s, int char_count)
 {
 	write(1, s, _strlen(s));
 	return (char_count + _strlen(s));
@@ -31,7 +31,7 @@ int print_string(char *s, int char_count)
  * @char_count: Current character count
  * Return: New character count
  */
-int print_precent(int char_count)
+int print_precent(const int char_count)
 {
 	write(1, "%", 1);
 	return (char_count + 1);
@@ -55,10 +55,12 @@ int _printf(const char *format, ...)
 
 	while (*format != '\0')
 	{
+		if (format == NULL)
+			return (-1);
+
 		if (*format != '%')
-		{
 			char_count = print_char(*format, char_count);
-		}
+
 		else
 		{
 			format++;
