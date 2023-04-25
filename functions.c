@@ -45,7 +45,7 @@ int print_string(const char *s, int char_count)
 }
 
 /**
- * print_precent - Function prints the precent symbol
+ * print_percent - Function prints the precent symbol
  * @char_count: Current character count
  * Return: New character count
  */
@@ -67,11 +67,13 @@ int print_arg(const char *format, va_list args, int char_count)
 	if (*format == 'c')
 	{
 		char c = (char)va_arg(args, int);
+
 		char_count = print_char(c, char_count);
 	}
 	else if (*format == 's')
 	{
 		char *s = va_arg(args, char *);
+
 		if (s == NULL)
 		{
 			s = "(null)";
