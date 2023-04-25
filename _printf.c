@@ -25,12 +25,17 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{
-			char_count = print_char(*format, char_count);
+			char_count += print_char(*format);
 		}
 		else
 		{
 			format++;
-			char_count = print_arg(format, args, char_count);
+
+			if (*format == '\0')
+			{
+				return (-1);
+			}
+			char_count += print_arg(format, args);
 		}
 		format++;
 	}

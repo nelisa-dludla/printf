@@ -12,10 +12,10 @@
  * @char_count: Current character count
  * Return: New character count
  */
-int print_char(const char c, int char_count)
+int print_char(const char c)
 {
 	write(1, &c, 1);
-	return (char_count + 1);
+	return (1);
 }
 
 /**
@@ -24,7 +24,7 @@ int print_char(const char c, int char_count)
  * @char_count: Current character count
  * Return: New character count
  */
-int print_string(const char *s, int char_count)
+int print_string(const char *s)
 {
 	int len;
 
@@ -41,7 +41,7 @@ int print_string(const char *s, int char_count)
 	}
 
 	write(1, s, len);
-	return (char_count + len);
+	return (len);
 }
 
 /**
@@ -49,10 +49,10 @@ int print_string(const char *s, int char_count)
  * @char_count: Current character count
  * Return: New character count
  */
-int print_percent(const int char_count)
+int print_percent(void)
 {
 	write(1, "%", 1);
-	return (char_count + 1);
+	return (1);
 }
 
 /**
@@ -62,31 +62,20 @@ int print_percent(const int char_count)
  * @char_count: Current character count
  * Return: New character count
  */
-int print_arg(const char *format, va_list args, int char_count)
+int print_arg(const char *c, va_list args)
 {
-	if (*format == 'c')
+	switch (*c)
 	{
-		char c = (char)va_arg(args, int);
+		case 'c':
+			return (print_char((char)va_arg(args, int)));
 
-		char_count = print_char(c, char_count);
-	}
-	else if (*format == 's')
-	{
-		char *s = va_arg(args, char *);
+		case 's':
+			return (print_string(va_arg(args, char *)));
 
-		if (s == NULL)
-		{
-			s = "(null)";
-		}
-		char_count = print_string(s, char_count);
+		case '%':
+			return (print_percent());
+
+		default:
+			return (print_char('%') + print_char(*c));
 	}
-	else if (*format == '%')
-	{
-		char_count = print_percent(char_count);
-	}
-	else
-	{
-		char_count = print_char(*format, char_count);
-	}
-	return (char_count);
 }
