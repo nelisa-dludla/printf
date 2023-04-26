@@ -87,35 +87,11 @@ int print_arg(const char *c, va_list args)
  */
 int print_int(int num)
 {
-	int count, digit, i;
+	int count;
 	char buffer[21];
 
-	count = 0;
-	i = 0;
-
-	if (num == 0)
-	{
-		return (print_char('0'));
-	}
-
-	if (num < 0)
-	{
-		count += print_char('-');
-		num *= -1;
-	}
-
-	while (num > 0)
-	{
-		digit = num % 10;
-		buffer[i] = digit + '0';
-		i++;
-		num /= 10;
-	}
-
-	for (i = i - 1; i >= 0; i--)
-	{
-		count += print_char(buffer[i]);
-	}
+	count = sprintf(buffer, "%d", num);
+	write(1, buffer, count);
 
 	return (count);
 }
