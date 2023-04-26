@@ -9,7 +9,7 @@ In this project, my partner and I recreated our own printf function.
 - Code follows the Betty style. It was checked using [betty-style.pl](https://github.com/holbertonschool/Betty/blob/master/betty-style.pl) and [betty-doc.pl](https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl)
 - Use of global variables was not allowed
 - No more than 5 functions per file
-- The only authorized functions and marcos are `write`, `malloc`, `free`, `va_start`. `va_end`, `va_copy` and `va_arg`
+- Authorized functions and marcos are `write`, `malloc`, `free`, `va_start`. `va_end`, `va_copy` and `va_arg`
 - The prototypes of all functions are included in the header file called `main.h`
 - Header file is include guarded
 
@@ -29,6 +29,7 @@ Handles the following conversion specifiers:
 - %
 - d
 - i
+- b
 
 Does not handle:
 
