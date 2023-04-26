@@ -5,7 +5,7 @@
 /**
  * _printf - Function prints
  * @format: Pointer parameter
- * Return: Number of characters to be printed (excluding '\0')
+ * Return: Number of character(s) to be printed (excluding '\0')
  */
 int _printf(const char *format, ...)
 {
