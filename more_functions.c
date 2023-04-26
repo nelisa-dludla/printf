@@ -5,7 +5,7 @@
 /**
  * print_binary - Function prints an unsigned int as binary
  * @num: Unsigned int to be printed
- * Return: Number of characters to be printed
+ * Return: Number of character(s) to be printed
  */
 
 int print_binary(unsigned int num)
