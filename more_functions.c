@@ -23,7 +23,7 @@ int print_binary(unsigned int num)
 
 	for (i = count - 1; i >= 0; i--)
 	{
-		write(1, &buffer[i], 1);
+		print_char(buffer[i]);
 	}
 
 	return (count);
