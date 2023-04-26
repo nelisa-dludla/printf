@@ -88,7 +88,7 @@ int print_arg(const char *c, va_list args)
 int print_int(int num)
 {
 	int count, digit, i;
-	char buffer[12];
+	char buffer[21];
 
 	count = 0;
 	i = 0;
