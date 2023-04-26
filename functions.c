@@ -75,6 +75,9 @@ int print_arg(const char *c, va_list args)
 		case 'i':
 			return (print_int(va_arg(args, int)));
 
+		case 'b':
+			return (print_binary(va_arg(args, unsigned int)));
+
 		default:
 			return (print_char('%') + print_char(*c));
 	}

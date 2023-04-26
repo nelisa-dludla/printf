@@ -10,5 +10,6 @@ int print_string(const char *s);
 int print_percent(void);
 int print_arg(const char *c, va_list args);
 int print_int(int num);
+int print_binary(unsigned int num);
 
 #endif /* MAIN_H */
